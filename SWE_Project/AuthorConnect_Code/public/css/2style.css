@@ -1,0 +1,226 @@
+/* RESET / REFRESH/ CLEAN PAGE */
+
+:root {
+    --primary:  #8c38ff;
+    --light: #EEEEEE;
+    --dark: #212121;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(snow,var(--light));
+    );
+}
+
+/* POSITIONING HEADER NAV */
+/* BASIC STYLING OF PAGE */
+
+.main{
+    padding: 4rem;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background-color: var(--dark);
+    padding: 16px 32px;
+    border-bottom: 3px solid var(--primary);
+}
+
+/* BURGER STYLING */
+
+/* RESPONSIVE NAVIGATION LINKS STYLING */
+
+.menu {
+    display: none;
+    flex: 1 1 0%;
+    justify-content: flex-end;
+    margin: 0 -16px;
+}
+
+.menu a {
+    color: #fff;
+    margin: 0 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.4s;
+    padding: 8px 16px;
+    border-radius: 99px;
+}
+
+.menu a.is-active .menu a:hover {
+    background-color: var(--primary) ;
+}
+
+/* MOBILE-NAV CREATING AND DESPLAYING (BURGER) NAV */
+
+
+
+/*END OF RESPONSIVE NAVIGATION STYLING */
+
+
+footer {
+
+    border: 10px solid;
+    padding:30px;
+    text-align: left;
+    color:whitesmoke;
+    background: var(--dark);
+    margin-top: auto;
+}
+
+
+
+header {
+    background: white;
+    color: var(--light);
+    grid-column: 1 / 13; /* header starts at col 1 and ends before col 13 */
+}
+
+
+footer {
+    grid-column: 1 / 13;
+}
+
+
+
+/*  side nav */
+.sidenav {
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 15px;
+    color: #818181;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+
+/*hamburger*/
+
+
+#hamburger-input{
+    display: none;
+}
+
+#hamburger-menu {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 30px;
+    height: 30px;
+    display: none;
+    border: none;
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Cabin', Sans-serif;
+    background: linear-gradient(
+            to bottom,
+            white, white 20%,
+            #3D0E61 20%, #3D0E61 40%,
+            white 40%,   white 60%,
+            #3D0E61 60%, #3D0E61 80%,
+            white 80%,   white 100%
+    );
+}
+
+#hamburger-menu #mobile-nav {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 200px;
+    height: 100%;
+    background-color: #3D0E61;
+    transition: 0.3s;
+    padding: 0px 10px;
+    box-sizing: border-box;
+}
+
+#hamburger-menu h3 {
+    color: var(--light);
+    font-size: 3.2rem;
+}
+
+#hamburger-menu ul {
+    padding-left: 0px;
+}
+
+#hamburger-menu li {
+    list-style-type: none;
+    line-height: 3rem;
+}
+
+#hamburger-menu a {
+    color: #B9FAF8;
+    font-size: 1.3rem;
+    text-decoration: none;
+}
+
+#hamburger-menu a:hover {
+    text-decoration: underline;
+}
+
+#hamburger-input:checked + #hamburger-menu #mobile-nav {
+    visibility: visible;
+    left: 0;
+}
+#hamburger-input:checked ~ .overlay{
+    visibility: visible;
+    opacity: 0.4;
+}
+
+/* @MEDIA DISPALYING AND HIDING NAV RESPONSIVE CONTENTS */
+
+@media screen and (max-width: 750px) {
+    #hamburger-menu {
+        display: inline;
+    }
+}
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .35s, visibility .35s, height .35s;
+    overflow: hidden;
+    background: black;
+    z-index: -1;
+}
